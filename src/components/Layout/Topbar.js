@@ -1,6 +1,10 @@
 import React, {Component} from 'react';
 import {Container} from "reactstrap";
 import {Link} from "react-router-dom";
+import { Layout, Menu, Breadcrumb } from 'antd';
+import "./topbar.css";
+
+const { Header, Content, Footer } = Layout;
 
 class Topbar extends Component {
     constructor(props){
@@ -28,12 +32,6 @@ class Topbar extends Component {
                     title: "Docs",
                     link: "/home",
                     isOpenSubMenu: false,
-                    child: [
-                        { title: "Documentations", link: "/documentation" },
-                        { title: "Changelog", link: "/changelog" },
-                        { title: "Components", link: "/components" },
-                        { title: "Widget", link: "/widget" },
-                    ],
                 },
             ]
         }
@@ -41,37 +39,26 @@ class Topbar extends Component {
     render() {
         return (
             <React.Fragment>
-                <header id="topnav" className="defaultscroll sticky-top">
-                    <Container>
+                <Layout id="topnav" className="layout sticky-top">
+                    <Header>
                         <div>
                             <Link to="/" className = "logo">
                                 <img src="" alt="logo" id="brandLogo" height="24" />
                             </Link>
                         </div>
-                        <div className="buy-button">
-                            <Link
-                                to="/home"
-                                target="_blank"
-                                className="btn btn-pills btn-primary"
-                            >
-                                Buy Now
-                            </Link>
-                        </div>
-                        <div
-                            id="navigation"
-                            style={{ display: "block" }}
-                            // style={{ display: this.state.isOpen ? "block" : "none" }}
+                        <Menu
+                            theme="" mode="horizontal"
                         >
-                            <ul className="navigation-menu" id="top-menu">
-                                {this.state.navLinks.map((navLink, key)=>
-                                    <li key={key}>
-                                        <Link to={navLink.link}>{navLink.title}</Link>
-                                    </li>
-                                )}
-                            </ul>
-                        </div>
-                    </Container>
-                </header>
+                            {
+                                this.state.navLinks.map((navLink, key)=> {
+                                return <Menu.Item key={key}>
+                                    <Link to={navLink.link}>{navLink.title}</Link>
+                                </Menu.Item>;
+                                }
+                            )}
+                        </Menu>
+                    </Header>
+                </Layout>
             </React.Fragment>
         );
     }

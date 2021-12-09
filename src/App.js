@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 
 //import css
+import "antd/dist/antd.css"
 
 import routes from "./routes";
 
