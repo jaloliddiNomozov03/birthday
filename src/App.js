@@ -1,22 +1,68 @@
+import React, {Component, Suspense} from 'react';
+import {
+    Route,
+    Switch,
+    BrowserRouter as Router,
+    withRouter,
+} from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import routes from "./routes";
+
+function withLayout(WrappedComponent) {
+    // ...and returns another component...
+    return class extends React.Component {
+        render() {
+            return (
+                <>
+                    <WrappedComponent/>
+                </>
+            );
+        }
+    };
 }
 
-export default App;
+class App extends Component {
+    Loader = () => {
+        return (
+            <div id="preloader">
+                <div id="status">
+                    <div className="spinner">
+                        <div className="double-bounce1"/>
+                        <div className="double-bounce2"/>
+                    </div>
+                </div>
+            </div>
+        );
+    };
+    render() {
+        return (
+            <React.Fragment>
+              <Router>
+                <Suspense fallback={this.Loader()}>
+                    <Switch>
+                        {routes.map((route, idx) =>
+                            route.isWithoutLayout ? (
+                                <Route
+                                    path={route.path}
+                                    exact={route.exact}
+                                    component={route.component}
+                                    key={idx}
+                                />
+                            ) : (
+                                <Route
+                                    path={route.path}
+                                    exact
+                                    component={withLayout(route.component)}
+                                    key={idx}
+                                />
+                            )
+                        )}
+                    </Switch>
+                </Suspense>
+              </Router>
+            </React.Fragment>
+        );
+    }
+}
+
+export default withRouter(App);
