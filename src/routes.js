@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Root =React.lazy(()=>import("./pages/Home/indexRoot"));
-const Account = React.lazy(()=> import("./pages/Pages/Account"));
+const Account = React.lazy(()=> import("./pages/Pages/Account/Account"));
 const routes = [
 
     {path: "/", component: Root, isWithoutLayout: true, exact: true},
