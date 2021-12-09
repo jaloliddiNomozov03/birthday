@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { Table, Tag, Space } from 'antd';
 
 
-
 const columns = [
     {
         title: 'Name',
@@ -84,6 +83,7 @@ class Home extends Component {
             <React.Fragment>
                 <Table columns={columns} dataSource={data} />
             </React.Fragment>
+
         );
     }
 }

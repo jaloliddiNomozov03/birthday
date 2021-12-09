@@ -1,5 +1,7 @@
 import React, {Component, Suspense} from 'react';
+import { Layout, Menu, Breadcrumb } from 'antd';
 
+const { Content } = Layout;
 const Topbar = React.lazy(()=>import("../../components/Layout/Topbar"));
 const  Home = React.lazy(() => import('./Home'));
 
@@ -7,11 +9,14 @@ class IndexRoot extends Component {
 
     constructor(props) {
         super(props);
-        this.state={}
+        this.state={
+
+        };
     }
     componentDidMount() {
         document.body.classList = "";
         window.addEventListener("scroll", this.scrollNavigation, true);
+        console.log(this.props);
     }
 
     // Make sure to remove the DOM listener when the component is unmounted.
@@ -49,7 +54,12 @@ class IndexRoot extends Component {
             <React.Fragment>
                 <Suspense fallback = {this.Loader()}>
                     <Topbar />
-                    <Home />
+                    <Content style={{ padding: '0 50px', top: '50px' }}>
+                        <Breadcrumb style={{ margin: '16px 0' }}>
+                            <Breadcrumb.Item>Home</Breadcrumb.Item>
+                        </Breadcrumb>
+                        <Home />
+                    </Content>
                 </Suspense>
             </React.Fragment>
         );

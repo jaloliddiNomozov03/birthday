@@ -41,13 +41,9 @@ class Topbar extends Component {
             <React.Fragment>
                 <Layout id="topnav" className="layout sticky-top">
                     <Header>
-                        <div>
-                            <Link to="/" className = "logo">
-                                <img src="" alt="logo" id="brandLogo" height="24" />
-                            </Link>
-                        </div>
                         <Menu
-                            theme="" mode="horizontal"
+                            theme="light"
+                            mode="horizontal"
                         >
                             {
                                 this.state.navLinks.map((navLink, key)=> {
