@@ -1,5 +1,4 @@
 import React, {Component, Suspense} from 'react';
-
 import {
     Route,
     Switch,
@@ -7,6 +6,7 @@ import {
     withRouter,
 } from "react-router-dom";
 
+import Layout from "./components/Layout/";
 
 //import css
 import "antd/dist/antd.css"
@@ -18,9 +18,9 @@ function withLayout(WrappedComponent) {
     return class extends React.Component {
         render() {
             return (
-                <>
+                <Layout>
                     <WrappedComponent/>
-                </>
+                </Layout>
             );
         }
     };

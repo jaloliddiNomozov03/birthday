@@ -5,7 +5,7 @@ const Account = React.lazy(()=> import("./pages/Pages/Account/Account"));
 const routes = [
 
     {path: "/", component: Root, isWithoutLayout: true, exact: true},
-    {path: "/home", component: Root},
+    {path: "/home", component: Root, isWithoutLayout: true, exact: true},
     { path: "/profile", component: Account},
 
 ];

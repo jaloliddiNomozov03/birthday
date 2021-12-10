@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import {Container} from "reactstrap";
 import {Link} from "react-router-dom";
 import { Layout, Menu, Breadcrumb } from 'antd';
-import "./topbar.css";
 
-const { Header, Content, Footer } = Layout;
+
+const { Header } = Layout;
 
 class Topbar extends Component {
     constructor(props){
@@ -18,14 +17,12 @@ class Topbar extends Component {
                     link: "/#",
                     isMegaMenu: true,
                     isOpenSubMenu: false,
-                    child: [],
                 },
                 {
                     id: 3,
                     title: "Pages",
                     link: "/profile",
                     isOpenSubMenu: false,
-                    child: [],
                 },
                 {
                     id: 4,
@@ -44,6 +41,7 @@ class Topbar extends Component {
                         <Menu
                             theme="light"
                             mode="horizontal"
+                            style={{minWidth: "100%"}}
                         >
                             {
                                 this.state.navLinks.map((navLink, key)=> {
