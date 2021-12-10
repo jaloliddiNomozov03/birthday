@@ -1,0 +1,25 @@
+.page-header{
+    left: 60px;
+    z-index: 41;
+    position: fixed;
+    left: 280px;
+    right: 0;
+    top: 0;
+    margin: 0px;
+    border-bottom: none;
+    height: 70px;
+    padding: 7px 0;
+    background: #ececf1;
+    box-sizing: border-box;
+
+}
+div{
+    display: block;
+}
+.container{
+    background-color: #637282;
+    font-weight: 400;
+    color: #212529;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+}

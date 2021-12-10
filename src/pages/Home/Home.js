@@ -1,5 +1,18 @@
 import React, {Component} from 'react';
-import { Table, Tag, Space } from 'antd';
+import {
+    Table,
+    Tag,
+    Space,
+    Modal,
+    Button,
+    Form,
+    Input,
+    Select,
+    TreeSelect,
+    Cascader,
+    DatePicker,
+    InputNumber, Switch
+} from 'antd';
 
 
 const columns = [
@@ -78,9 +91,112 @@ class Home extends Component {
         super(props);
         this.state = {};
     }
+    state = {
+        loading: false,
+        visible: false,
+    };
+
+    showModal = () => {
+        this.setState({
+            visible: true,
+        });
+    };
+
+    handleOk = () => {
+        this.setState({ loading: true });
+        setTimeout(() => {
+            this.setState({ loading: false, visible: false });
+        }, 3000);
+    };
+
+    handleCancel = () => {
+        this.setState({ visible: false });
+    };
     render() {
+        const { visible, loading } = this.state;
         return (
             <React.Fragment>
+                <Button type="primary" onClick={this.showModal}>
+                    Open Modal with customized footer
+                </Button>
+                <Modal
+                    visible={visible}
+                    title="Title"
+                    onOk={this.handleOk}
+                    onCancel={this.handleCancel}
+                    footer={[
+                        <Button key="back" onClick={this.handleCancel}>
+                            Return
+                        </Button>,
+                        <Button key="submit" type="primary" loading={loading} onClick={this.handleOk}>
+                            Submit
+                        </Button>,
+                        <Button
+                            key="link"
+                            href="https://google.com"
+                            type="primary"
+                            loading={loading}
+                            onClick={this.handleOk}
+                        >
+                            Search on Google
+                        </Button>,
+                    ]}
+                >
+                    <Form
+                        labelCol={{ span: 4 }}
+                        wrapperCol={{ span: 14 }}
+                        layout="horizontal"
+                        // initialValues={{ size: componentSize }}
+                        // onValuesChange={onFormLayoutChange}
+                        // size={}
+                    >
+
+                        <Form.Item label="Input">
+                            <Input />
+                        </Form.Item>
+                        <Form.Item label="Select">
+                            <Select>
+                                <Select.Option value="demo">Demo</Select.Option>
+                            </Select>
+                        </Form.Item>
+                        <Form.Item label="TreeSelect">
+                            <TreeSelect
+                                treeData={[
+                                    { title: 'Light', value: 'light', children: [{ title: 'Bamboo', value: 'bamboo' }] },
+                                ]}
+                            />
+                        </Form.Item>
+                        <Form.Item label="Cascader">
+                            <Cascader
+                                options={[
+                                    {
+                                        value: 'zhejiang',
+                                        label: 'Zhejiang',
+                                        children: [
+                                            {
+                                                value: 'hangzhou',
+                                                label: 'Hangzhou',
+                                            },
+                                        ],
+                                    },
+                                ]}
+                            />
+                        </Form.Item>
+                        <Form.Item label="DatePicker">
+                            <DatePicker />
+                        </Form.Item>
+                        <Form.Item label="InputNumber">
+                            <InputNumber />
+                        </Form.Item>
+                        <Form.Item label="Switch" valuePropName="checked">
+                            <Switch />
+                        </Form.Item>
+                        <Form.Item label="Button">
+                            <Button>Button</Button>
+                        </Form.Item>
+                    </Form>
+                </Modal>
+
                 <Table columns={columns} dataSource={data} />
             </React.Fragment>
 

@@ -17,17 +17,19 @@ class Topbar extends Component {
                     link: "/#",
                     isMegaMenu: true,
                     isOpenSubMenu: false,
+                    child: [],
                 },
                 {
                     id: 3,
                     title: "Pages",
                     link: "/profile",
                     isOpenSubMenu: false,
+                    child: [],
                 },
                 {
                     id: 4,
-                    title: "Docs",
-                    link: "/home",
+                    title: "Form",
+                    link: "/form",
                     isOpenSubMenu: false,
                 },
             ]
@@ -41,7 +43,6 @@ class Topbar extends Component {
                         <Menu
                             theme="light"
                             mode="horizontal"
-                            style={{minWidth: "100%"}}
                         >
                             {
                                 this.state.navLinks.map((navLink, key)=> {
