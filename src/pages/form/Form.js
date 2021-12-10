@@ -13,7 +13,7 @@ import {
 } from 'antd';
 import Topbar from "../../components/Layout/Topbar";
 
-class Forma extends Component {
+export default class Forma extends Component {
     render() {
         return (
             <React.Fragment>
@@ -75,5 +75,3 @@ class Forma extends Component {
         );
     }
 }
-
-export default Forma;
