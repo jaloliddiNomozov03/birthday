@@ -1,0 +1,89 @@
+Index: src/components/Layout/Topbar.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, {Component} from 'react';\r\nimport {Container} from \"reactstrap\";\r\nimport {Link} from \"react-router-dom\";\r\n\r\nclass Topbar extends Component {\r\n    constructor(props){\r\n        super(props);\r\n        this.state = {\r\n            navLinks: [\r\n                {id: 1, title: \"Home\", link: \"/home\"},\r\n                {\r\n                    id: 2,\r\n                    title: \"Landing\",\r\n                    link: \"/#\",\r\n                    isMegaMenu: true,\r\n                    isOpenSubMenu: false,\r\n                    child: [],\r\n                },\r\n                {\r\n                    id: 3,\r\n                    title: \"Pages\",\r\n                    link: \"/profile\",\r\n                    isOpenSubMenu: false,\r\n                    child: [],\r\n                },\r\n                {\r\n                    id: 4,\r\n                    title: \"Docs\",\r\n                    link: \"/home\",\r\n                    isOpenSubMenu: false,\r\n                    child: [\r\n                        { title: \"Documentations\", link: \"/documentation\" },\r\n                        { title: \"Changelog\", link: \"/changelog\" },\r\n                        { title: \"Components\", link: \"/components\" },\r\n                        { title: \"Widget\", link: \"/widget\" },\r\n                    ],\r\n                },\r\n            ]\r\n        }\r\n    }\r\n    render() {\r\n        return (\r\n            <React.Fragment>\r\n                <header id=\"topnav\" className=\"defaultscroll sticky-top\">\r\n                    <Container>\r\n                        <div>\r\n                            <Link to=\"/\" className = \"logo\">\r\n                                <img src=\"\" alt=\"logo\" id=\"brandLogo\" height=\"24\" />\r\n                            </Link>\r\n                        </div>\r\n                        <div className=\"buy-button\">\r\n                            <Link\r\n                                to=\"/home\"\r\n                                target=\"_blank\"\r\n                                className=\"btn btn-pills btn-primary\"\r\n                            >\r\n                                Buy Now\r\n                            </Link>\r\n                        </div>\r\n                        <div\r\n                            id=\"navigation\"\r\n                            style={{ display: \"block\" }}\r\n                            // style={{ display: this.state.isOpen ? \"block\" : \"none\" }}\r\n                        >\r\n                            <ul className=\"navigation-menu\" id=\"top-menu\">\r\n                                {this.state.navLinks.map((navLink, key)=>\r\n                                    <li key={key}>\r\n                                        <Link to={navLink.link}>{navLink.title}</Link>\r\n                                    </li>\r\n                                )}\r\n                            </ul>\r\n                        </div>\r\n                    </Container>\r\n                </header>\r\n            </React.Fragment>\r\n        );\r\n    }\r\n}\r\n\r\nexport default Topbar;
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/Layout/Topbar.js b/src/components/Layout/Topbar.js
+--- a/src/components/Layout/Topbar.js	(revision f90ab06a334eddab4698bbfe9490e0301e72d342)
++++ b/src/components/Layout/Topbar.js	(date 1639074118287)
+@@ -45,7 +45,7 @@
+                     <Container>
+                         <div>
+                             <Link to="/" className = "logo">
+-                                <img src="" alt="logo" id="brandLogo" height="24" />
++                                <img src="https://lms.tuit.uz/assets/images/logo-md.png" alt="logo" id="brandLogo" height="40" />
+                             </Link>
+                         </div>
+                         <div className="buy-button">
+Index: src/pages/Home/Home.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, {Component} from 'react';\r\n\r\nclass Home extends Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.state = {};\r\n    }\r\n    render() {\r\n        return (\r\n            <React.Fragment>\r\n                <section>\r\n                    <div>\r\n                        <h1>Hello world</h1>\r\n                    </div>\r\n                </section>\r\n            </React.Fragment>\r\n        );\r\n    }\r\n}\r\n\r\n\r\nexport default Home;
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/pages/Home/Home.js b/src/pages/Home/Home.js
+--- a/src/pages/Home/Home.js	(revision f90ab06a334eddab4698bbfe9490e0301e72d342)
++++ b/src/pages/Home/Home.js	(date 1639072823737)
+@@ -1,4 +1,5 @@
+ import React, {Component} from 'react';
++import "./home.css";
+ 
+ class Home extends Component {
+     constructor(props) {
+@@ -8,9 +9,14 @@
+     render() {
+         return (
+             <React.Fragment>
+-                <section>
+-                    <div>
+-                        <h1>Hello world</h1>
++                <section className="container">
++                    <div className="page-container">
++                        <div className="page-header">
++                            <h1>Hello world</h1>
++                            <nav className="navbar navbar-default">
++
++                            </nav>
++                        </div>
+                     </div>
+                 </section>
+             </React.Fragment>
+Index: src/pages/Home/home.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/pages/Home/home.css b/src/pages/Home/home.css
+new file mode 100644
+--- /dev/null	(date 1639073010455)
++++ b/src/pages/Home/home.css	(date 1639073010455)
+@@ -0,0 +1,25 @@
++.page-header{
++    left: 60px;
++    z-index: 41;
++    position: fixed;
++    left: 280px;
++    right: 0;
++    top: 0;
++    margin: 0px;
++    border-bottom: none;
++    height: 70px;
++    padding: 7px 0;
++    background: #ececf1;
++    box-sizing: border-box;
++
++}
++div{
++    display: block;
++}
++.container{
++    background-color: #637282;
++    font-weight: 400;
++    color: #212529;
++    font-family: 'Open Sans', sans-serif;
++    font-size: 14px;
++}
+\ No newline at end of file

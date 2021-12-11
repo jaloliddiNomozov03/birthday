@@ -1,0 +1,55 @@
+Index: src/components/Layout/Topbar.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, {Component} from 'react';\r\nimport {Container} from \"reactstrap\";\r\nimport {Link} from \"react-router-dom\";\r\nimport { Layout, Menu, Breadcrumb } from 'antd';\r\nimport \"./topbar.css\";\r\n\r\nconst { Header, Content, Footer } = Layout;\r\n\r\nclass Topbar extends Component {\r\n    constructor(props){\r\n        super(props);\r\n        this.state = {\r\n            navLinks: [\r\n                {id: 1, title: \"Home\", link: \"/home\"},\r\n                {\r\n                    id: 2,\r\n                    title: \"Landing\",\r\n                    link: \"/#\",\r\n                    isMegaMenu: true,\r\n                    isOpenSubMenu: false,\r\n                    child: [],\r\n                },\r\n                {\r\n                    id: 3,\r\n                    title: \"Pages\",\r\n                    link: \"/profile\",\r\n                    isOpenSubMenu: false,\r\n                    child: [],\r\n                },\r\n                {\r\n                    id: 4,\r\n                    title: \"Docs\",\r\n                    link: \"/home\",\r\n                    isOpenSubMenu: false,\r\n                },\r\n            ]\r\n        }\r\n    }\r\n    render() {\r\n        return (\r\n            <React.Fragment>\r\n                <Layout id=\"topnav\" className=\"layout sticky-top\">\r\n                    <Header>\r\n                        <div>\r\n                            <Link to=\"/\" className = \"logo\">\r\n                                <img src=\"\" alt=\"logo\" id=\"brandLogo\" height=\"24\" />\r\n                            </Link>\r\n                        </div>\r\n                        <Menu\r\n                            theme=\"\" mode=\"horizontal\"\r\n                        >\r\n                            {\r\n                                this.state.navLinks.map((navLink, key)=> {\r\n                                return <Menu.Item key={key}>\r\n                                    <Link to={navLink.link}>{navLink.title}</Link>\r\n                                </Menu.Item>;\r\n                                }\r\n                            )}\r\n                        </Menu>\r\n                    </Header>\r\n                </Layout>\r\n            </React.Fragment>\r\n        );\r\n    }\r\n}\r\n\r\nexport default Topbar;
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/components/Layout/Topbar.js b/src/components/Layout/Topbar.js
+--- a/src/components/Layout/Topbar.js	(revision 6565cb336a9c436a3ca9b122f96f93feac2bab96)
++++ b/src/components/Layout/Topbar.js	(date 1639074296350)
+@@ -43,7 +43,7 @@
+                     <Header>
+                         <div>
+                             <Link to="/" className = "logo">
+-                                <img src="" alt="logo" id="brandLogo" height="24" />
++                                <img src="https://lms.tuit.uz/assets/images/logo-md.png" alt="logo" id="brandLogo" height="40" />
+                             </Link>
+                         </div>
+                         <Menu
+Index: src/pages/Home/home.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/pages/Home/home.css b/src/pages/Home/home.css
+new file mode 100644
+--- /dev/null	(date 1639074310238)
++++ b/src/pages/Home/home.css	(date 1639074310238)
+@@ -0,0 +1,25 @@
++.page-header{
++    left: 60px;
++    z-index: 41;
++    position: fixed;
++    left: 280px;
++    right: 0;
++    top: 0;
++    margin: 0px;
++    border-bottom: none;
++    height: 70px;
++    padding: 7px 0;
++    background: #ececf1;
++    box-sizing: border-box;
++
++}
++div{
++    display: block;
++}
++.container{
++    background-color: #637282;
++    font-weight: 400;
++    color: #212529;
++    font-family: 'Open Sans', sans-serif;
++    font-size: 14px;
++}
+\ No newline at end of file

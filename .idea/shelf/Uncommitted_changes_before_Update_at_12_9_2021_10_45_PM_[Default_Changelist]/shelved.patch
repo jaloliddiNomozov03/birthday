@@ -1,0 +1,47 @@
+Index: src/pages/Home/Home.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import React, {Component} from 'react';\r\n\r\nclass Home extends Component {\r\n    constructor(props) {\r\n        super(props);\r\n        this.state = {};\r\n    }\r\n    render() {\r\n        return (\r\n            <React.Fragment>\r\n                <section>\r\n                    <div>\r\n                        <h1>Hello world</h1>\r\n                    </div>\r\n                </section>\r\n            </React.Fragment>\r\n        );\r\n    }\r\n}\r\n\r\n\r\nexport default Home;
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/pages/Home/Home.js b/src/pages/Home/Home.js
+--- a/src/pages/Home/Home.js	(revision 01fbaf196bf6f7696cc56980ef58955cc7709c50)
++++ b/src/pages/Home/Home.js	(date 1639071679467)
+@@ -10,7 +10,12 @@
+             <React.Fragment>
+                 <section>
+                     <div>
+-                        <h1>Hello world</h1>
++                        <div className="page-header">
++                            <h1>Hello world</h1>
++                            <nav className="navbar navbar-default">
++
++                            </nav>
++                        </div>
+                     </div>
+                 </section>
+             </React.Fragment>
+Index: src/pages/Home/home.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/pages/Home/home.css b/src/pages/Home/home.css
+new file mode 100644
+--- /dev/null	(date 1639071679998)
++++ b/src/pages/Home/home.css	(date 1639071679998)
+@@ -0,0 +1,12 @@
++.page-header{
++    left: 60px;
++    z-index: 41;
++    position: fixed;
++    right: 0;
++    top: 0;
++    margin: 0px;
++    border-bottom: none;
++    height: 70px;
++    padding: 7px 0;
++    background: aqua;
++}
+\ No newline at end of file
