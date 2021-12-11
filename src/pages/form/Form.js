@@ -17,7 +17,6 @@ export default class Forma extends Component {
     render() {
         return (
             <React.Fragment>
-                <Topbar />
                 <Form
                     labelCol={{ span: 4 }}
                     wrapperCol={{ span: 14 }}

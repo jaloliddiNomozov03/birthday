@@ -4,7 +4,7 @@ import {withRouter} from "react-router-dom";
 // Scroll up button
 import ScrollUpButton from "react-scroll-up-button";
 
-//Import Icons
+// //Import Icons
 import FeatherIcon from "feather-icons-react";
 
 const CustomDot = () => {

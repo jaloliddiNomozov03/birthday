@@ -154,9 +154,10 @@ class Home extends Component {
                         <Form.Item label="Input">
                             <Input />
                         </Form.Item>
-                        <Form.Item label="Select">
+                        <Form.Item label="Name">
                             <Select>
                                 <Select.Option value="demo">Demo</Select.Option>
+                                <Select.Option value="memo">Memo</Select.Option>
                             </Select>
                         </Form.Item>
                         <Form.Item label="TreeSelect">
